@@ -5,9 +5,9 @@
  - MODULE          : Module containing rotines to give info to the user     -
  - PROGRAM         : Int2Txi                                                -
  - DESCRIPTION     : This program converts Interrupt List to Texinfo format -
- - VERSION         : 1.1.0                                                  -
+ - VERSION         : 1.2.0                                                  -
  - AUTHOR          : Fernando J.A. Silva (aka ^Magico^)                     -
- - DATE            : 01st July, 1998                                        -
+ - DATE            : 01st September, 1998                                   -
  ----------------------------------------------------------------------------
 
 */
@@ -25,7 +25,7 @@ void print_help_options(char *location)
   {
   fprintf(stdout,"\n");
   fprintf(stdout,"%s converts Ralf Brown Interrupt List to TeXinfo format\n",int2txi_version);
-  fprintf(stdout,"(C) 1998 Fernando J.A. Silva <bfe2333@mail.telepac.pt>\n");
+  fprintf(stdout,"(C) 1998 Fernando J.A. Silva <magico@GalaxyCorp.com>\n");
   fprintf(stdout,"\n");
   fprintf(stdout,"usage: %s [options]\n",location);
   fprintf(stdout,"\n");
@@ -55,7 +55,7 @@ void print_software_license()
   clrscr();
   fprintf(stdout,"\n");
   fprintf(stdout,"%s converts Ralf Brown Interrupt List to TeXinfo format\n",int2txi_version);
-  fprintf(stdout,"(C) 1998 Fernando J.A. Silva <bfe2333@mail.telepac.pt>\n");
+  fprintf(stdout,"(C) 1998 Fernando J.A. Silva <magico@GalaxyCorp.com>\n");
   fprintf(stdout,"\n");
   fprintf(stdout,"    Int2Txi is free software; you can redistribute it and/or\n");
   fprintf(stdout,"    modify them under the terms of the GNU General Public License as\n");
@@ -73,7 +73,7 @@ void print_software_license()
   fprintf(stdout,"    59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.\n");
   fprintf(stdout,"\n");
   fprintf(stdout,"    For more information visit:\n");
-  fprintf(stdout,"    http://members.xoom.com/Coders/projectos/int2txi.htm\n");
+  fprintf(stdout,"    http://members.xoom.com/ptcoders/\n");
   fprintf(stdout,"\n");
   } // print_software_license()
 

@@ -5,9 +5,9 @@
  - MODULE          : Files module containing rotines for files operations   -
  - PROGRAM         : Int2Txi                                                -
  - DESCRIPTION     : This program converts Interrupt List to Texinfo format -
- - VERSION         : 1.1.0                                                  -
+ - VERSION         : 1.2.0                                                  -
  - AUTHOR          : Fernando J.A. Silva (aka ^Magico^)                     -
- - DATE            : 01st July, 1998                                        -
+ - DATE            : 01st September, 1998                                   -
  ----------------------------------------------------------------------------
 
 */
@@ -41,28 +41,30 @@ int check_file(char *_fn,int stop)
 /*
 *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*
 |                                                                           *
-*  Rotine      : remove_temp_files()                                        |
-|  Description : This rotine removes ALL temporary files                    *
-*  Input       : ----                                                       |
-|  Return      : ----                                                       *
+*  Rotine      : copy_all_file()                                            |
+|  Description : This rotine copies the source file exactly to target file  *
+*  Input       : _fn --> The file we are checking for.                      |
+|  Return      : ------                                                     *
 *                                                                           |
 *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*
 */
-void remove_temp_files()
+void copy_all_file(char *_fn)
   {
-  remove("TEMPFILE.001");
-  remove("TEMPFILE.002");
-  remove("TEMPFILE.003");
-  remove("TEMPFILE.004");
-  remove("TEMPFILE.005");
-  remove("TEMPFILE.006");
-  remove("TEMPFILE.007");
-  remove("TEMPFILE.008");
-  remove("TEMPFILE.009");
-  remove("TEMPFILE.010");
-  remove("TEMPFILE.011");
-  remove("TEMPFILE.012");
-  remove("TEMPFILE.013");
-  remove("TEMPFILE.014");
-  remove("TEMPFILE.015");
-  } // remove_temp_files
+  FILE *sourcefile;
+  char buf[255];
+  char tempstr[255];
+
+  // Open source file
+  sourcefile = fopen(_fn,"rt");
+  rewind(sourcefile);
+  fputs("@flushleft\n",int2txi);
+  while ((fgets(buf, sizeof(buf), sourcefile)) != NULL)
+    {
+    strcpy(tempstr,buf);
+    find_and_change(buf,tempstr,1);
+    fputs(buf, int2txi);
+    }
+  fputs("@end flushleft\n",int2txi);
+  // Close source file
+  fclose(sourcefile);
+  } // copy_all_file

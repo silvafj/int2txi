@@ -6,7 +6,7 @@
 
                           converter for TeXinfo format
 
-                                 version 1.1.0
+                                 version 1.2.0
   
                                Copyright (C) 1998
 
@@ -27,7 +27,7 @@ with SET's Editor.
     This distribution includes the binary file and the source files.
     So, you have just to do:
 
-        unzip i2txi110.zip     or   pkunzip -d i2txi110.zip
+        unzip i2txi120.zip     or   pkunzip -d i2txi120.zip
 
     in your DJGPP directory.
 
@@ -43,7 +43,7 @@ with SET's Editor.
 
     Simply type:
 
-                  Int2TeX [options]
+                  Int2Txi [options]
 
     Use the -h option for command line help.
     Use the -i option for software license.

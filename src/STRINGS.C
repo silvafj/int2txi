@@ -5,9 +5,9 @@
  - MODULE          : Module containing specific strings operations          -
  - PROGRAM         : Int2Txi                                                -
  - DESCRIPTION     : This program converts Interrupt List to Texinfo format -
- - VERSION         : 1.1.0                                                  -
+ - VERSION         : 1.2.0                                                  -
  - AUTHOR          : Fernando J.A. Silva (aka ^Magico^)                     -
- - DATE            : 01st July, 1998                                        -
+ - DATE            : 01st September, 1998                                   -
  ----------------------------------------------------------------------------
 
 */
@@ -24,7 +24,8 @@
 |                                                                           *
 *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*
 */
-void strchange(char str_final[200],char str_inicial[200],char str_in[200],int ponto)
+void strchange(char str_final[255],char str_inicial[255],char str_in[255],
+               int ponto)
   {
   int i, ponto2, tamanho;
 
@@ -79,7 +80,8 @@ int strfind(char *string, char caracter,int inicio)
 *                                                                           |
 *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*
 */
-void find_and_change(char string_final[200], char string_inicial[200], int make)
+void find_and_change(char string_final[200], char string_inicial[200],
+                     int make)
   {
   int j;
   char tempstr[200];

@@ -5,9 +5,9 @@
  - MODULE          : Nodes module containing rotines for nodes operations   -
  - PROGRAM         : Int2Txi                                                -
  - DESCRIPTION     : This program converts Interrupt List to Texinfo format -
- - VERSION         : 1.1.0                                                  -
+ - VERSION         : 1.2.0                                                  -
  - AUTHOR          : Fernando J.A. Silva (aka ^Magico^)                     -
- - DATE            : 01st July, 1998                                        -
+ - DATE            : 01st September, 1998                                   -
  ----------------------------------------------------------------------------
 
 */
