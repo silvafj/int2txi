@@ -197,7 +197,7 @@ LD_EXTRA_FLAGS=
 C_EXTRA_FLAGS=
 LOCAL_OPT=$(subst ___~~~___, ,$(subst $(notdir $<)___,,$(filter $(notdir\
 	$<)___%,$(LOCAL_OPTIONS))))
-OBJFILES=int2tex.o
+OBJFILES=int2txi.o
 LIBRARIES=
 SOURCE_NAME=$<
 OUTFILE=$@
@@ -216,8 +216,8 @@ RHIDE_OS_:=$(shell uname)
 endif
 endif
 
-MAIN_TARGET=a.exe
-PROJECT_ITEMS=int2tex.c
+MAIN_TARGET=int.exe
+PROJECT_ITEMS=int2txi.c
 DEFAULT_MASK=*.[acfghimnops]*
 RHIDE_BIN_DIR=c:/progra~1/djgpp/bin
 PASCAL_TYPE=GPC
@@ -276,12 +276,12 @@ PASCAL_TYPE=GPC
 %.o: %.adb
 	$(RHIDE_COMPILE.adb.o)
 all::
-DEPS_0= int2tex.o 
+DEPS_0= int2txi.o 
 NO_LINK=
 LINK_FILES=$(filter-out $(NO_LINK),$(DEPS_0))
-a.exe:: $(DEPS_0)
+int.exe:: $(DEPS_0)
 	$(RHIDE_COMPILE_LINK)
-DEPS_1=int2tex.c
-int2tex.o:: $(DEPS_1)
+DEPS_1=int2txi.c
+int2txi.o:: $(DEPS_1)
 	$(RHIDE_COMPILE.c.o)
-all:: a.exe
+all:: int.exe

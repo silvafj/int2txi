@@ -3,24 +3,18 @@
  ----------------------------------------------------------------------------
  - FILE            : STRINGS.C                                              -
  - MODULE          : Module containing specific strings operations          -
- - PROGRAM         : Int2TeX                                                -
- - DESCRIPTION     : This program converts Interrupt List to TeXInfo format -
- - VERSION         : 1.0                                                    -
+ - PROGRAM         : Int2Txi                                                -
+ - DESCRIPTION     : This program converts Interrupt List to Texinfo format -
+ - VERSION         : 1.1.0                                                  -
  - AUTHOR          : Fernando J.A. Silva (aka ^Magico^)                     -
- - DATE            : 01st June, 1998                                        -
- ----------------------------------------------------------------------------
- - HISTORIAL                                                                -    
- - ~~~~~~~~~                                                                -
- - April 06 1998   v.0.1  + First Version                                   -
- - June  01 1998   v.1.0  + First Release                                   -
- -                                                                          -
+ - DATE            : 01st July, 1998                                        -
  ----------------------------------------------------------------------------
 
 */
 /*
 *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*
 |                                                                           *
-*  Rotine      : strinst                                                    |
+*  Rotine      : strchange                                                  |
 |  Description : Inserts a string inside other at a specified position      *
 *  Input       : str_final --> output string                                |
 |                str_inicial --> initial string                             *
@@ -30,7 +24,7 @@
 |                                                                           *
 *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*
 */
-void strinst(char str_final[200],char str_inicial[200],char str_in[200],int ponto)
+void strchange(char str_final[200],char str_inicial[200],char str_in[200],int ponto)
   {
   int i, ponto2, tamanho;
 
@@ -47,7 +41,7 @@ void strinst(char str_final[200],char str_inicial[200],char str_in[200],int pont
     str_final[ponto2] = str_inicial[i];
     ponto2++;
     }
-  } // strinst
+  } // strchange
 
 /*
 *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*
@@ -100,7 +94,18 @@ void find_and_change(char string_final[200], char string_inicial[200], int make)
                j = strfind(tempstr,',',j);
                if (j!=-1)
                  {
-                 strinst(string_final, tempstr,"@,",j);
+                 strchange(string_final, tempstr,"  ",j);
+                 j = j + 2;
+                 }
+               strcpy(tempstr,string_final);
+               }
+             j = 0;
+             while (j!=-1)
+               {
+               j = strfind(tempstr,':',j);
+               if (j!=-1)
+                 {
+                 strchange(string_final, tempstr,"  ",j);
                  j = j + 2;
                  }
                strcpy(tempstr,string_final);
@@ -110,23 +115,21 @@ void find_and_change(char string_final[200], char string_inicial[200], int make)
              j = 0;
              while (j!=-1)
                {
-               j = strfind(tempstr,'*',j);
+               j = strfind(tempstr,'@',j);
                if (j!=-1)
                  {
-                 strinst(string_final, tempstr,"o",j);
+                 strchange(string_final, tempstr,"@@",j);
                  j = j + 2;
                  }
                strcpy(tempstr,string_final);
                }
-             }
-    case 2 : {
              j = 0;
              while (j!=-1)
                {
-               j = strfind(tempstr,'@',j);
+               j = strfind(tempstr,'*',j);
                if (j!=-1)
                  {
-                 strinst(string_final, tempstr,"@@",j);
+                 strchange(string_final, tempstr,"o",j);
                  j = j + 2;
                  }
                strcpy(tempstr,string_final);
@@ -137,7 +140,7 @@ void find_and_change(char string_final[200], char string_inicial[200], int make)
                j = strfind(tempstr,'{',j);
                if (j!=-1)
                  {
-                 strinst(string_final, tempstr,"@{",j);
+                 strchange(string_final, tempstr,"@{",j);
                  j = j + 2;
                  }
                strcpy(tempstr,string_final);
@@ -148,7 +151,7 @@ void find_and_change(char string_final[200], char string_inicial[200], int make)
                j = strfind(tempstr,'}',j);
                if (j!=-1)
                  {
-                 strinst(string_final, tempstr,"@}",j);
+                 strchange(string_final, tempstr,"@}",j);
                  j = j + 2;
                  }
                strcpy(tempstr,string_final);

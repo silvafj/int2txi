@@ -3,17 +3,11 @@
  ----------------------------------------------------------------------------
  - FILE            : CHAPT_12.C                                             -
  - MODULE          : Module containing "Chapter 13" processing              -
- - PROGRAM         : Int2TeX                                                -
- - DESCRIPTION     : This program converts Interrupt List to TeXInfo format -
- - VERSION         : 1.0                                                    -
+ - PROGRAM         : int2txi                                                -
+ - DESCRIPTION     : This program converts Interrupt List to Texinfo format -
+ - VERSION         : 1.1.0                                                  -
  - AUTHOR          : Fernando J.A. Silva (aka ^Magico^)                     -
- - DATE            : 01st June, 1998                                        -
- ----------------------------------------------------------------------------
- - HISTORIAL                                                                -    
- - ~~~~~~~~~                                                                -
- - April 06 1998   v.0.1  + First Version                                   -
- - June  01 1998   v.1.0  + First Release                                   -
- -                                                                          -
+ - DATE            : 01st July, 1998                                        -
  ----------------------------------------------------------------------------
 
 */
@@ -76,7 +70,7 @@ void process_chapter_13(void)
   rewind(tempfile8);
   rewind(tempfile9);
   rewind(tempfile10);
-  fputs("@menu\n",Int2TeX);
+  fputs("@menu\n",int2txi);
   // Rewind Temporay File to check all topics and write them to the menu...
   while	(fgets(buf, sizeof(buf), tempfile7) != NULL)
     {
@@ -84,11 +78,11 @@ void process_chapter_13(void)
     // Take off format char "\n" at the end of the string
     buf[strlen(buf)-1] = '\0';
     buf2[strlen(buf2)-1] = '\0';
-    creat_menu_item(buf,buf2,automa_item);
+    creat_menu_item(buf,buf2);
     cprintf("_");
      } // while...
   // End menu
-  fputs("@end menu\n",Int2TeX);
+  fputs("@end menu\n",int2txi);
   // Rewind Temporary File (again) for starting writing sections, sub-sections
   // and transfering source lines
   rewind(tempfile7);
@@ -135,9 +129,9 @@ void process_chapter_13(void)
       start_line = atoi(buf);
       fgets(buf, sizeof(buf), tempfile10);
       end_line = atoi(buf);
-      fputs("@flushleft\n",Int2TeX);
+      fputs("@flushleft\n",int2txi);
       temp_var = transfer_lines_2(prev_line,start_line, end_line);
-      fputs("@end flushleft\n",Int2TeX);
+      fputs("@end flushleft\n",int2txi);
       cprintf(".");
       prev_line = temp_var;
       } // if...
